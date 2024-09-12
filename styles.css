@@ -1,0 +1,59 @@
+
+.form-container {
+    text-align: center;
+    position: relative;
+    align-items: center;
+    z-index: 2;
+    width: 80%;
+    min-width: 600px;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(24, 11, 44);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+img {
+    max-width: 100%;
+    max-height: 100px;
+}
+body{
+    
+    background-color: rgb(31, 41, 70);
+    color: lightblue;
+    font-family: 'Courier New', Courier, monospace;
+}
+input{
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(0, 0, 56);
+    text-align: center;
+}
+.b:active{
+    background-color: rgb(128, 194, 196);
+    color: black;
+}
+a{
+    color: aliceblue;
+}
+legend{
+    text-align: center;
+}
+fieldset{
+    border-color: lightblue;
+    border-style: solid;
+}
+select{
+    background-color: cadetblue;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(0, 0, 56);
+    text-align: center;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
