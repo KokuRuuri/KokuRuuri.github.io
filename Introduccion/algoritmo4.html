@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 1</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script>
+        function main() {
+            if(!isNaN(document.getElementById("num").value)&& 0<(document.getElementById("num").value)){
+                var num = parseInt(document.getElementById("num").value);
+                var resultado = "";
+                var fibonum=0;
+                var i=0;
+                while(fibonum<num){
+                    if(i<2){
+                        resultado +=`${i} <br>`;
+                    } else {
+                        fibonum = fibo(i);
+                        if(fibonum<num){
+                            resultado +=`${fibonum} <br>`;
+                        }
+                    }
+                    i++;
+                }
+                document.getElementById("out").innerHTML = resultado;
+            } else {
+                document.getElementById("out").innerHTML=`Existe un error en el tipo de datos ingresados. <br> El valor debe ser numerico y mayor a 1.`
+            }
+
+        }
+        function fibo(i){
+            if(i<=2){
+                return 1;
+            } else {
+                return fibo(i-1)+fibo(i-2);
+            }
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html">←regresar</a><br>
+    
+    <div class="form-container">
+        <img src="./img/Fibonacci_Numbers_1.png">
+    </div>
+    <div class="form-container">
+        Serie o Sucesión de Fibonacci, solicite el límite al usuario.<br>
+        Fibonacci = 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987<br>
+    </div>
+    <div class="form-container">
+        <fieldset>
+        <legend>ₓ◦｡˚○┈┈┈୨˖  ͘  Entrada ͘ ˖ ୧┈┈┈○˚｡◦ₓ</legend>
+        <br>Numero limite de la sucesión<br> <input type="text" id="num" value="100"><br>
+        <br><br><input type="button" value="Encontrar la sucesión" onclick="main()">
+    <br><br></fieldset></div>
+    <div class="form-container">
+        <fieldset><legend>‿̩͙‿ ༺ Salida ༻ ‿̩͙‿</legend>
+        <p id="out"><p>
+    </fieldset></div>
+</body>
+</html>

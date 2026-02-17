@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 3</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+        input[type=number]{
+            width: 60px;
+            height: 40px;
+        }
+    </style>
+    <script>
+        function Generar(){
+            document.getElementById("cuadrado").innerHTML = "";
+            
+            var tabla = document.getElementById("cuadrado");
+            var lados = parseInt(document.getElementById("lados").value);
+            var celda ="", nuevaFila="", r = 0;
+            for(var r=0;r<lados;r++){
+                
+                var nuevaFila = tabla.insertRow(-1);
+                celda = nuevaFila.insertCell(0);
+                celda.innerHTML = "";
+                celda.style.border = "none"
+                for(var c=0;c<lados;c++){
+                    var celda = nuevaFila.insertCell(-1);
+                    var entrada = document.createElement("input");
+                    entrada.setAttribute("type","number");
+                    //entrada.setAttribute("value",Aleatorio());
+                    entrada.setAttribute("required","required");
+                    entrada.setAttribute("value",Aleatorios());
+                    celda.appendChild(entrada);
+                }
+                var celda = nuevaFila.insertCell(-1);
+                celda.innerHTML="suma";
+                
+            }
+            nuevaFila = tabla.insertRow(-1);
+            for (c = 0; c<=lados+1;c++){
+                celda = nuevaFila.insertCell(-1);
+                celda.innerHTML="suma";
+            }
+            tabla.rows[lados].cells[lados+1].innerHTML = "diagonal";
+            tabla.rows[lados].cells[0].innerHTML = "diagonali";
+        
+        }
+        function Aleatorios(){
+            return Math.floor(Math.random()*100);
+        }
+        function EjemploMagico(){
+            var tabla = document.getElementById("cuadrado");
+            for (let r=0;r<document.getElementById("lados").value;r++){
+                for (let c=1;c<=document.getElementById("lados").value;c++){
+                    tabla.rows[r].cells[c].querySelector('input').value= document.getElementById("lados").value;
+                }   
+            }
+        }
+        function Calcular(){
+            var tabla = document.getElementById("cuadrado");
+            var lado = parseInt(document.getElementById("lados").value);
+            var r = 0; c = 0; 
+            for ( r = 0; r<lado-1; r++){
+                suma=0
+                for(c=1;c<=lado;c++){
+                    suma += parseInt(tabla.rows[r].cells[c].querySelector('input').value);
+                }
+                tabla.rows[r].cells[lado].innerHTML = suma;
+            }
+        }
+    </script>
+</head>
+<body onload="Generar">
+    <a href="index.html">←regresar</a>
+    <br><br>
+    <div class="form-container">
+    cuadrado magico
+    <br> Los cuadrados magicos, son un conjunto de numerso enteros diferentes colocados en las casillas de un cuadrado 
+    y que se caracterizan porque la sumas de sus filas, columnas y diagonales principales es siempre 
+    la misma, el valor de la suma es denominado Constante mágica del cuadrado.
+    <br> 
+    </div>
+    <div class="form-container">
+    <fieldset>
+    <legend>ₓ◦｡˚○┈┈┈୨˖  ͘  Entrada ͘ ˖ ୧┈┈┈○˚｡◦ₓ</legend>
+    selccione el tamaño del cuadrado:
+    <select id="lados" onchange="Generar()">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+    </select>
+    <br><br><input type="button" class="b" value="Generar" onclick="Generar()">
+    <br><input type="button" class="b" value="Calcular" onclick="Calcular()">
+    <br><input type="button" class="b" value="Ejemplo de cuadrado" onclick="Generar()">
+    <br><input type="button" class="b" value="Ejemplo de cuadrado magico" onclick="EjemploMagico()">
+    </fieldset>
+    </div>
+    <div class="form-container">
+    <fieldset><legend>‿̩͙‿ ༺ Salida ༻ ‿̩͙‿</legend>
+    <table id="cuadrado"></table>
+    </fieldset>
+    </div>
+</body>
+</html>

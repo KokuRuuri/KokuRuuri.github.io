@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 1</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script>
+        function multiplos3(){
+            if(!isNaN(document.getElementById("num1").value) && !isNaN(document.getElementById("num2").value)){
+                var a=document.getElementById("num1").value;
+                var b=document.getElementById("num2").value;
+                var multiplos = "";
+                for(let i = a; i<=b; i++){
+                    if(i%3 ==0){
+                        multiplos +=`${i} <br>`;
+                    }
+                }
+                if(a!=b){
+                    for(let i = a; i>=b; i--){
+                        if(i%3 ==0){
+                            multiplos +=`${i} <br>`;
+                        }
+                    }
+                }
+                document.getElementById("out").innerHTML=`Los multiplos de 3 entre ${a} y ${b} son:<br> ${multiplos}`;
+            } else {
+                document.getElementById("out").innerHTML=`Existe un error en el tipo de datos ingresados`;
+            }   
+        }
+    </script>
+</head>
+<body>
+    <a href="index.html">←regresar</a>
+    <br><br>
+    <div class="form-container">
+    Encontrar e imprimir todoss los números comprendidos entre dos enteros que son 
+    múltiplos de 3<br> 
+    </div>
+    <div class="form-container">
+    <fieldset>
+    <legend>ₓ◦｡˚○┈┈┈୨˖  ͘  Entrada ͘ ˖ ୧┈┈┈○˚｡◦ₓ</legend>
+    <br>dato1<br><input type="text" value="10" id="num1"><br>
+    <br>dato2<br><input type="text" value="20" id="num2"><br>
+    <br><br><input type="button" class="b" value="Encontrar los multiplos de 3" onclick="multiplos3()">
+    <br><br></fieldset>
+    </div>
+    
+    <div class="form-container">
+    <fieldset><legend>‿̩͙‿ ༺ Salida ༻ ‿̩͙‿</legend>
+    <p id="out"></p>
+    </fieldset>
+    </div>
+</body>
+</html>
